@@ -1,24 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyTrafficLight" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gmu-Ef-bdf">
+                                <rect key="frame" x="108" y="84" width="198" height="624"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cHH-cS-N61">
+                                        <rect key="frame" x="0.0" y="0.0" width="198" height="198"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="cHH-cS-N61" secondAttribute="height" multiplier="1:1" id="ffm-5Y-Xln"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clU-Ah-VRM">
+                                        <rect key="frame" x="0.0" y="213" width="198" height="198"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="clU-Ah-VRM" secondAttribute="height" multiplier="1:1" id="Tdh-Tc-QMh"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BlG-t4-rXW">
+                                        <rect key="frame" x="0.0" y="426" width="198" height="198"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="BlG-t4-rXW" secondAttribute="height" multiplier="1:1" id="lhw-IX-kWM"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDC-kS-mdc">
+                                <rect key="frame" x="113" y="781" width="188" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="START"/>
+                                <connections>
+                                    <action selector="switchLightButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="D5I-xW-qEc"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gmu-Ef-bdf" secondAttribute="bottom" constant="154" id="CBb-qV-ibO"/>
+                            <constraint firstItem="CDC-kS-mdc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="113" id="MSC-Ax-f2E"/>
+                            <constraint firstItem="CDC-kS-mdc" firstAttribute="top" secondItem="gmu-Ef-bdf" secondAttribute="bottom" constant="73" id="R23-er-b77"/>
+                            <constraint firstItem="gmu-Ef-bdf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="emc-jo-VhK"/>
+                            <constraint firstItem="CDC-kS-mdc" firstAttribute="centerX" secondItem="gmu-Ef-bdf" secondAttribute="centerX" id="evI-AH-L7v"/>
+                            <constraint firstItem="gmu-Ef-bdf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kOH-gM-mLy"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="greenLightView" destination="BlG-t4-rXW" id="g82-2C-Zbx"/>
+                        <outlet property="redLightView" destination="cHH-cS-N61" id="JcY-PN-Vg7"/>
+                        <outlet property="switchButton" destination="CDC-kS-mdc" id="cn6-7h-lKc"/>
+                        <outlet property="yellowLightView" destination="clU-Ah-VRM" id="0Wl-Nz-8n4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="20" y="67.916041979010501"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
